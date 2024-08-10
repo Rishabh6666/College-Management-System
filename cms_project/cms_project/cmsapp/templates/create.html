@@ -1,0 +1,28 @@
+{% load static %}
+<style>
+	* {font-size: 30px; }
+	body {background: rgb(6,2,84);
+
+	background: url({% static 'bg.jpeg' %});
+	background-position: center;
+	background-size: cover;
+
+	.nav {background-color:navy ; height:40px;}
+	.nav a { color:#c3fbf4;text-decoration:none;margin:2%;}
+
+</style>
+<center>
+	<div class="nav">
+		<a href="{% url 'thome' %}"> Back To Home Page</a>
+		<a href="{% url 'vfeed' %}"> View Feedback </a>
+	</div>
+	<h1> Create New Polls </h1>
+	<form method ="POST">
+	{% csrf_token %}
+		<table>
+			{{ fm.as_table}}
+		</table>
+		<input type="submit" value="Save"/>
+	</form>
+	<h1> {{ msg }} </h1>
+</center>

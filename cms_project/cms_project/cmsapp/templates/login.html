@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+{%load static %}
+<style>
+	.nav1 a {margin:10%;}
+
+</style>
+
+<div class="nav1">
+		<a href="{% url 'main' %}" > Back </a>
+</div>
+<h1>Login Page </h1>
+
+<form method="POST">
+{% csrf_token %}
+<input type="text" name="un" placeholder="enter username" required />
+<br><br>
+<input type="password" name="pw" placeholder="enter password" required />
+<br><br>
+<input type="submit" value="Login" />
+</form>
+<h1> {{ msg }} </h1>
+{% endblock %}

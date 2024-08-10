@@ -1,0 +1,32 @@
+{% extends 'tbase.html' %}
+{% block content %}
+{% load static %}
+<style>
+	* {font-size: 30px; }
+	body {background: rgb(6,2,84);
+
+	background: url({% static 'bg.jpeg' %});
+	background-position: center;
+	background-size: cover;
+
+	.nav {background-color:navy ; height:60px;}
+	.nav a { color:#c3fbf4;text-decoration:none;}
+
+
+</style>
+	<div class="nav">
+		<a href="{% url 'thome' %}"> Home Page </a>
+	</div>
+	<br>
+	<h1> Welcome {{ user.username }} </h1>
+	<br>
+
+<a href="{% url 'add' %}">Add Assignments </a>
+<br> <br>
+<a href="{% url 'view' %}"> View Submissions </a>
+<br><br>
+<a href="{% url 'anotes' %}"> Notes Section </a>
+<br><br>
+<a href="{% url 'vfeed' %}"> Feedback </a>
+<br><br>
+{% endblock %}

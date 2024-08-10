@@ -1,0 +1,37 @@
+{% load static %}
+<html>
+<head>
+<title> CMS </title>
+<style>
+		* {font-size: 30px; }
+	body {background: rgb(6,2,84);
+	background: url({% static 'bg.jpeg' %});
+	background-position: center;
+	background-size: cover;
+	.nav {background-color:navy; height:40px;}
+	.nav a {color:#c3fbf4;text-decoration:none;margin:2%;}
+</style>
+</head>
+<body>
+<center>
+	<div class="nav">
+		<a href="{% url 'thome' %}"> Back To Home Page </a>
+	</div>
+	<br>
+	<h1> Assignments </h1>
+	<form method ="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+		<table>
+			{{ fm.as_table }}
+		</table>
+		<br>
+	
+	<button onclick="window.location.href = 'addmin';">
+ADD</button>
+	</form>
+	<h1> {{ msg }} </h1>
+ 
+
+</center>
+</body>
+</html>	

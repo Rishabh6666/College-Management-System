@@ -1,0 +1,26 @@
+{% load static%}
+<style>
+	* {font-size: 30px; }
+	body {background: rgb(6,2,84);
+	background: url({% static 'bg.jpeg' %});
+	background-position: center;
+	background-size: cover;
+	.nav {background-color:navy; height:40px;}
+	.nav a {color:#c3fbf4;text-decoration:none;margin:2%;}
+</style>
+<center>
+	<div class="nav">
+		<a href="{% url 'feed' %}">Back</a>
+	</div>
+	<h1> Caste Your Vote </h1>
+	<h2> Q:-{{ data.question }} </h2>
+
+	<form method = "POST">
+	{% csrf_token %}
+	<input type="radio" name="op"value="op1" required> {{ data.op1 }}
+	<input type="radio" name="op"value="op2" required> {{ data.op2 }}
+	<input type="radio" name="op"value="op3" required> {{ data.op3 }}
+	<br><br>
+	<button> <a href="{% url 'feed' %}">  Submit </a> </button>
+	</form>
+</center>

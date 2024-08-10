@@ -1,0 +1,47 @@
+{% load static%}
+<html>
+<head>
+<title> CMS </title>
+<style>
+		* {font-size: 30px; }
+	body {background: rgb(6,2,84);
+	background: url({% static 'bg.jpeg' %});
+	background-position: center;
+	background-size: cover;
+	.nav {background-color:navy; height:40px;}
+	.nav a {color:#c3fbf4;text-decoration:none;margin:2%;}
+</style>
+</head>
+<body>
+<center>
+	<div class="nav">
+		<a href="{% url 'thome' %}">Back To Home Page</a>
+	</div>
+	<br>
+	<h1> SUBMISSIONS </h1>
+	<table border="3" style="width:50%;">
+		<tr> 
+			<th> Name </th>
+			<th> PRN </th>
+			<th> SUBJECT </th>
+			<th> SUBMITTED </th>
+			<th> DELETE </th>
+		</tr>
+
+	{% for d in data %}
+		<tr style="text-align:center;">
+			<td> {{ d.name }} </td>
+			<td> {{ d.prn }} </td>
+			<td> {{ d.subject }} </td>
+			<td> <a href = {{ d.Submission.url }}> View </a> </td>
+		<td> <a href="{% url 'remove' id=d.prn %}"
+		onclick="return confirm('r u sure???')">Delete </a></td>
+
+		</tr>
+	{% endfor %}
+	</table>
+
+
+</center>
+</body>
+</html>	

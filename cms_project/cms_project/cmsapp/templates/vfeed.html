@@ -1,0 +1,25 @@
+{% load static %}
+<style>
+	* {font-size: 30px; }
+	body {background: rgb(6,2,84);
+
+	background: url({% static 'bg.jpeg' %});
+	background-position: center;
+	background-size: cover;
+
+	.nav {background-color:navy ; height:40px;}
+	.nav a { color:#c3fbf4;text-decoration:none;margin:2%;}
+
+</style>
+<center>
+	<div class="nav">
+		<a href="{% url 'thome' %}"> Back To Home Page </a>
+		<a href="{% url 'create' %}">Create Feedback</a>
+	</div>
+	<h1> Available Polls </h1>
+	{% for d in data %}
+		<h2>Q:- {{ d.question }}</h2>
+		<button> <a href="{% url 'result' id=d.id %}"> Result </a> </button>
+	{% empty %}
+	{% endfor %}
+</center>

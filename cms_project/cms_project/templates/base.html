@@ -1,0 +1,31 @@
+{% load static %}
+<html>
+<head>
+<title> CMS </title>
+<style>
+	* {font-size: 30px; }
+	body {background: rgb(6,2,84);
+	background: url({% static 'back.jpg' %});
+	background-position: center;
+	background-size: cover;
+	.nav {background-color:navy ; height:40px;}
+	.nav a {color:#c3fbf4;text-decoration:none;margin-right:2%;}
+</style>
+</head>
+<body>
+<center>
+<div class="nav">
+	{% if user.is_authenticated %}
+		<a href="{% url 'ulogout' %}" > Logout </a>
+	{% else %}
+		<a href="{% url 'ulogin' %}" > Login </a>
+		<a href="{% url 'usignup' %}" > SignUp </a>
+	{% endif %}
+</div>
+{% block content %}
+{% endblock %}
+</center>
+</body>
+</html>
+
+		

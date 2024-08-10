@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+<head>
+<title> CMS </title>
+<style>
+	* {font-size: 30px; }
+	body {background: rgb(6,2,84);
+	background: url({% static 'back.jpg' %});
+	background-position: center;
+	background-size: cover;
+
+	.nav {background-color:navy ; height:60px;padding-right:2%;text-align:left;}
+	.nav a { color:#c3fbf4;text-decoration:none;padding-top:10px;margin-right:3%;display:flex;float:right;}
+	.nav b { color:#c3fbf4;font-size:44px;}
+	
+</style>
+</head>
+<body>
+<center>
+	<div class="nav">
+		<b href="">College Wise</b>
+		<a href="{% url 'ulogin' %}"> Student Login </a>
+		<a href="{% url 'tlogin' %}"> Teacher Login </a>
+		
+	</div>
+</center>
+</body>
+</html>

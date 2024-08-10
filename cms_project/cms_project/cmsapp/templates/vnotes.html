@@ -1,0 +1,45 @@
+{% load static%}
+<html>
+<head>
+<title> CMS </title>
+<style>
+	* {font-size: 30px; }
+	body {background: rgb(6,2,84);
+	background: url({% static 'bg.jpeg' %});
+	background-position: center;
+	background-size: cover;
+	.nav {background-color:navy; height:40px;}
+	.nav a {color:#c3fbf4;text-decoration:none;margin:2%;}
+</style>
+</head>
+<body>
+<center>
+	<div class="nav">
+		<a href="{% url 'thome' %}">Back To Home </a>
+		<a href="{% url 'anotes' %}"> Add Notes </a>
+	</div>
+
+<h1> View Notes </h1>
+	
+		
+	<table border="3" style="width:50%;">
+		<tr> 
+			<th> Subject </th>
+			<th> Chp Name </th>
+			<th> Material </th>
+			<th> Delete </td>
+		</tr>
+
+	{% for d in data %}
+		<tr style="text-align:center;">
+			<td> {{ d.Subject }} </td>
+			<td> {{ d.Chp_name}} </td>
+			<td> <a href = {{ d.Material.url }}> View </a> </td>
+			<td> <a href="{% url 'nremove' id=d.sid %}"
+		onclick="return confirm('r u sure???')">Delete </a></td>
+		</tr>
+	{% endfor %}
+	</table>
+</center>
+</body>
+</html>

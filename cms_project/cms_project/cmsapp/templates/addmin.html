@@ -1,0 +1,26 @@
+{% load static%}
+<html>
+<head>
+<title> CMS </title>
+<style>
+		* {font-size: 30px; }
+	body {background: rgb(6,2,84);
+	background: url({% static 'bg.jpeg' %});
+	background-position: center;
+	background-size: cover;
+	.nav {background-color:navy; height:40px;}
+	.nav a {color:#c3fbf4;text-decoration:none;margin:2%;}
+</style>
+</head>
+<body>
+<center>
+	<div class="nav">
+		<a href="{% url 'upload' %}"> Return  </a>
+	</div>
+	<br>
+	<h1> Please attach the file </h1>
+	
+
+</center>
+</body>
+</html>	

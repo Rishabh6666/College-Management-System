@@ -1,0 +1,45 @@
+{% load static%}
+<html>
+<head>
+<title> CMS </title>
+<style>
+	* {font-size: 30px; }
+	body {background: rgb(6,2,84);
+	background: url({% static 'bg.jpeg' %});
+	background-position: center;
+	background-size: cover;
+	.nav {background-color:navy; height:40px;}
+	.nav a {color:#c3fbf4;text-decoration:none;margin:2%;}
+</style>
+</head>
+<body>
+<center>
+	<div class="nav">
+		<a href="{% url 'home' %}">Back To Home Page</a>
+		<!--<a href="{% url 'student' %}"> Student-Page</a>-->
+	</div>
+	<h1> Student Page </h1>
+	
+		
+	<table border="3" style="width:50%;">
+		<tr> 
+			<th> Subject </th>
+			<th> Assignment </th>
+			<th> Reference Material </th>
+			<th> Submit </td>
+		</tr>
+
+	{% for d in data %}
+		<tr style="text-align:center;">
+			<td> {{ d.Subject }} </td>
+			<td> {{ d.Assignment}} </td>
+			<td> <a href = {{ d.RMaterial.url }}> View </a> </td>
+			<td> <a href="{% url 'upload' %}"> Upload Assignment </a> </td>	
+
+		</tr>
+	{% endfor %}
+	</table>
+</center>
+</body>
+</html>
+
